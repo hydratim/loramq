@@ -1,9 +1,11 @@
 from lora_mq import LoRaMQ
+import config
+
 from machine import Pin, ADC
 from time import sleep
 import struct
 
-lora = LoRaMQ()
+lora = LoRaMQ(config)
 
 def receive():
     while lora.rq_length()>0:

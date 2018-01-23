@@ -1,5 +1,4 @@
 from network import LoRa
-import config
 import time
 import socket
 import binascii
@@ -7,7 +6,7 @@ import struct
 import _thread
 
 class LoRaMQ:
-    def __init__(self):
+    def __init__(self, config):
         self.lora = LoRa(mode=LoRa.LORAWAN)
         # set the 3 default channels to the same frequency (must be before sending the OTAA join request)
         self.lora.add_channel(0, frequency=config.LORA_FREQUENCY, dr_min=0, dr_max=5)
